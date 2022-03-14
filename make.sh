@@ -4,6 +4,7 @@ cd asm
 # beebasm -v -i gxr120.asm -D BeebDisStartAddr=0x8000 > gxr120.lst
 # beebasm -v -i gxr200.asm -D BeebDisStartAddr=0x8000 > gxr200.lst
 beebasm -v -i top-b.asm -D BeebDisStartAddr=0x8000 > gxr120.lst && mv gxr120.rom ../roms
+beebasm -v -i top-os126.asm -D BeebDisStartAddr=0x8000 > gxr126.lst && mv gxr126.rom ../roms
 beebasm -v -i top-b-plus.asm -D BeebDisStartAddr=0x8000 > gxr200.lst && mv gxr200.rom ../roms
 beebasm -v -i top-electron.asm -D BeebDisStartAddr=0x8000 > gxr100.lst && mv gxr100.rom ../roms
 cd ..
