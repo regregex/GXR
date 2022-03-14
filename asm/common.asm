@@ -41,6 +41,30 @@ if BBC_B
         copyFourBytesWithinVDUVariables = $D48A
         fillRow = $D6A6
         setScreenAddress = $D864
+elif OS126
+        ;OS 1.25, 13 March 2022, NUL = $DF4D, CRC = $7F1D6DC9
+        ;OS 1.26, 13 March 2022, NUL = $DF59, CRC = $91A94527
+        ;SDC126,  13 March 2022, NUL = $DF7F, CRC = $2E72A6E9
+        ;STARGO,  13 March 2022, NUL = $DF65, CRC = $FD83B65C
+        sixteenColourMODEMaskTable = $C407
+        gcolPlotOptionsTable = $C41C
+        twoColourMODEParameterTable = $C424
+        vdu25EntryPoint = $C983
+        vdu22EntryPoint = $C8E2
+        exchangeTwoVDUBytes = $CDFC
+        plotPointWithinBoundsAtY = $D105
+        checkPointXIsWithinGraphicsWindow = $D121
+        checkPointIsWithinWindowHorizontalOrVertical = $D13A
+        plotConvertExternalRelativeCoordinatesToPixels = $D15D
+        moveGraphicsCursorAddressUpOneCharacterCell = $D3A4
+        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3BE
+        moveGraphicsCursorAddressTotheRight = $D3C3
+        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3CE
+        copyEightBytesWithinVDUVariables = $D44D
+        copyTwoBytesWithinVDUVariables = $D453
+        copyFourBytesWithinVDUVariables = $D45B
+        fillRow = $D676
+        setScreenAddress = $D82F
 elif BBC_B_PLUS
         sixteenColourMODEMaskTable = $C3FE
         gcolPlotOptionsTable = $C413
@@ -121,7 +145,7 @@ endif
         ; to risk accidentally breaking things by trying to tweak the temporary
         ; use to avoid accessing $D8 or $D9 until after we've successfully
         ; checked we *are* running on an Electron.
-if BBC_B or BBC_B_PLUS
+if BBC_B or OS126 or BBC_B_PLUS
         vduCurrentPlotByteMask = $D1
         vduGraphicsColourByteOR = $D4
         vduGraphicsColourByteEOR = $D5
@@ -315,7 +339,7 @@ L0C50   = $0C50
 L0C51   = $0C51
 L0C52   = $0C52
 L0DF0   = $0DF0
-if BBC_B or BBC_B_PLUS
+if BBC_B or OS126 or BBC_B_PLUS
 LFE30   = $FE30
 endif
 osfind  = $FFCE
@@ -343,7 +367,7 @@ LFFFF   = $FFFF
         EQUB    copyright - L8000 - 1
 
 .L8008_binary_version
-if BBC_B or BBC_B_PLUS
+if BBC_B or OS126 or BBC_B_PLUS
         EQUB    $01
 elif ELECTRON
         ; This is handled separately so the binary version number can be changed
@@ -356,6 +380,8 @@ endif
 .L8009
 if BBC_B
         EQUS    "Graphics Extension ROM 1.20",$0A,$0D,$00
+elif OS126
+        EQUS    "Graphics Extension ROM 1.26",$0A,$0D,$00
 elif BBC_B_PLUS
         EQUS    "Graphics Extension ROM 2.00",$0A,$0D,$00
 elif ELECTRON
@@ -395,7 +421,7 @@ endif
         LDA     #$00
         STA     L0DF0,X
         TXA
-if BBC_B
+if BBC_B or OS126
         AND     #$01
 elif BBC_B_PLUS
         AND     #$02
@@ -1211,7 +1237,7 @@ endif
         PHA
 .lda_imm_our_rom_bank_patch
         LDA     #$FF ; patched to LDA #our_rom_bank
-if BBC_B or BBC_B_PLUS
+if BBC_B or OS126 or BBC_B_PLUS
         STA     L00F4
         STA     LFE30
 elif ELECTRON
@@ -1222,7 +1248,7 @@ endif
         JSR     L8BCE_our_vdu_22_25_entry_point
 
         PLA
-if BBC_B or BBC_B_PLUS
+if BBC_B or OS126 or BBC_B_PLUS
         STA     L00F4
         STA     LFE30
 elif ELECTRON
@@ -1242,6 +1268,8 @@ endif
         EQUS    "GXR "
 if BBC_B
         EQUS    "1.20"
+elif OS126
+        EQUS    "1.26"
 elif BBC_B_PLUS
         EQUS    "2.00"
 elif ELECTRON
@@ -1263,7 +1291,7 @@ endif
         LDY     #$FF
         JSR     osbyte
 
-if BBC_B
+if BBC_B or OS126
         INX
 elif BBC_B_PLUS
         CPX     #$FB
@@ -1551,6 +1579,10 @@ L8B72 = L8B71 + 1
         STA     (L00F8),Y
 
         LDX     #$20
+if OS126
+        ; EIG entry point removed, call EIGC with plot mode in A
+        LDA     L031F
+endif
         JSR     plotConvertExternalRelativeCoordinatesToPixels
 
         LDY     #$05
@@ -4096,7 +4128,7 @@ L8B72 = L8B71 + 1
         BEQ     L9C1E
 
 .L9C0E
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     vduCurrentPlotByteMask
         AND     vduGraphicsColourByteOR
         ORA     (vduScreenAddressOfGraphicsCursorCellLow),Y
@@ -4514,7 +4546,7 @@ endif
 .L9E8B
         DEC     L0324
 .L9E8E
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     L032F
         AND     vduGraphicsColourByteOR
         ORA     (vduScreenAddressOfGraphicsCursorCellLow),Y
@@ -4622,7 +4654,7 @@ endif
 
 .L9F24
         LDY     L031A
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     (vduScreenAddressOfGraphicsCursorCellLow),Y
 elif BBC_B_PLUS
         JSR     b_plus_lda_d6_indirect_y_eor_35a_sta_da
@@ -4962,7 +4994,7 @@ endif
         LDA     L0344
         STA     vduTempStoreDD
 .LA128
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     (vduScreenAddressOfGraphicsCursorCellLow),Y
 elif BBC_B_PLUS
         JSR     b_plus_lda_d6_indirect_y_eor_35a_sta_da
@@ -4983,7 +5015,7 @@ endif
         SEC
         JSR     moveGraphicsCursorAddressTotheRight
 
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     (vduScreenAddressOfGraphicsCursorCellLow),Y
 elif BBC_B_PLUS
         LDX     vduTempStoreDA
@@ -5037,7 +5069,7 @@ endif
 
 .LA17C
         LDA     L0C17,X
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         STA     (vduScreenAddressOfGraphicsCursorCellLow),Y
 elif BBC_B_PLUS
         JSR     b_plus_sta_d6_indirect_y
@@ -5057,7 +5089,7 @@ endif
         AND     vduTempStoreDA
         STA     vduTempStoreDA
 .LA191
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     L0C17,X
         EOR     (vduScreenAddressOfGraphicsCursorCellLow),Y
         AND     vduTempStoreDA
@@ -5410,7 +5442,7 @@ endif
         ORA     L00A8
         EOR     L00A9
         LDY     L031A
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         ORA     (vduScreenAddressOfGraphicsCursorCellLow),Y
         EOR     vduGraphicsColourByteEOR
         STA     (vduScreenAddressOfGraphicsCursorCellLow),Y
@@ -5662,7 +5694,7 @@ endif
         PHA
 .LA53C
         LDY     L031A
-if BBC_B or ELECTRON
+if BBC_B or OS126 or ELECTRON
         LDA     (vduScreenAddressOfGraphicsCursorCellLow),Y
 elif BBC_B_PLUS
         LDA     vduTempStoreDA ; stash value at &DA which subroutine call will corrupt
@@ -9806,6 +9838,8 @@ if ELECTRON
         ; Make it relatively obvious this isn't an original 1980s Acorn version
         ; for the Electron.
         EQUS    "Steve 2020"
+elif OS126
+        EQUS    "Greg 2022"
 endif
 
         skipto  $bfdb
@@ -9814,6 +9848,8 @@ endif
 .BeebDisEndAddr
 if BBC_B
         SAVE "gxr120.rom",BeebDisStartAddr,BeebDisEndAddr
+elif OS126
+        SAVE "gxr126.rom",BeebDisStartAddr,BeebDisEndAddr
 elif BBC_B_PLUS
         SAVE "gxr200.rom",BeebDisStartAddr,BeebDisEndAddr
 elif ELECTRON
