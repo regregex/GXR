@@ -42,29 +42,29 @@ if BBC_B
         fillRow = $D6A6
         setScreenAddress = $D864
 elif OS126
-        ;OS 1.25, 13 March 2022, NUL = $DF4D, CRC = $7F1D6DC9
-        ;OS 1.26, 13 March 2022, NUL = $DF59, CRC = $91A94527
-        ;SDC126,  13 March 2022, NUL = $DF7F, CRC = $2E72A6E9
-        ;STARGO,  13 March 2022, NUL = $DF65, CRC = $FD83B65C
+        ;OS 1.25, 16 March 2022, NUL = $DF44, CRC = $DDD65477
+        ;OS 1.26, 16 March 2022, NUL = $DF50, CRC = $A8F0FAEF
+        ;SDC126,  16 March 2022, NUL = $DF76, CRC = $5D908CE5
+        ;STARGO,  16 March 2022, NUL = $DF5C, CRC = $924ABE0B
         sixteenColourMODEMaskTable = $C407
         gcolPlotOptionsTable = $C41C
         twoColourMODEParameterTable = $C424
-        vdu25EntryPoint = $C983
+        vdu25EntryPoint = $C981
         vdu22EntryPoint = $C8E2
-        exchangeTwoVDUBytes = $CDFC
-        plotPointWithinBoundsAtY = $D105
-        checkPointXIsWithinGraphicsWindow = $D121
-        checkPointIsWithinWindowHorizontalOrVertical = $D13A
-        plotConvertExternalRelativeCoordinatesToPixels = $D15D
-        moveGraphicsCursorAddressUpOneCharacterCell = $D3A4
-        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3BE
-        moveGraphicsCursorAddressTotheRight = $D3C3
-        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3CE
-        copyEightBytesWithinVDUVariables = $D44D
-        copyTwoBytesWithinVDUVariables = $D453
-        copyFourBytesWithinVDUVariables = $D45B
-        fillRow = $D676
-        setScreenAddress = $D82F
+        exchangeTwoVDUBytes = $CDD1
+        plotPointWithinBoundsAtY = $D0FC
+        checkPointXIsWithinGraphicsWindow = $D118
+        checkPointIsWithinWindowHorizontalOrVertical = $D131
+        plotConvertExternalRelativeCoordinatesToPixels = $D154
+        moveGraphicsCursorAddressUpOneCharacterCell = $D39B
+        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3B5
+        moveGraphicsCursorAddressTotheRight = $D3BA
+        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3C5
+        copyEightBytesWithinVDUVariables = $D444
+        copyTwoBytesWithinVDUVariables = $D44A
+        copyFourBytesWithinVDUVariables = $D452
+        fillRow = $D66D
+        setScreenAddress = $D826
 elif BBC_B_PLUS
         sixteenColourMODEMaskTable = $C3FE
         gcolPlotOptionsTable = $C413
