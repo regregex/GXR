@@ -46,7 +46,7 @@ elif OS126
         ;OS 1.26, 26 Jul 2022, NUL = $DF4F, CRC = $C085DC97
         ;SDC126,  26 Jul 2022, NUL = $DF75, CRC = $DAEB76CE
         ;STARGO,  26 Jul 2022, NUL = $DF5B, CRC = $9CB4F376
-	;NOSP,    26 Jul 2022, NUL = $DECE, CRC = $CC2B3DED
+        ;NOSP,    26 Jul 2022, NUL = $DECE, CRC = $CC2B3DED
         sixteenColourMODEMaskTable = $C407
         gcolPlotOptionsTable = $C41C
         twoColourMODEParameterTable = $C424
