@@ -42,30 +42,30 @@ if BBC_B
         fillRow = $D6A6
         setScreenAddress = $D864
 elif OS126
-        ;OS 1.25, 16 Nov 2022, EOT = $DF24, CRC = $F26201A1
-        ;OS 1.26, 16 Nov 2022, EOT = $DF30, CRC = $690BC82A
-        ;SDC126,  16 Nov 2022, EOT = $DF56, CRC = $34D6DD29
-        ;STARGO,  16 Nov 2022, EOT = $DF3C, CRC = $B210F689
-        ;NOSP,    16 Nov 2022, EOT = $DEB1, CRC = $0538A35F
+        ;OS 1.25, 21 May 2023, EOT = $DF1F, CRC = $953EEC29
+        ;OS 1.26, 21 May 2023, EOT = $DF3A, CRC = $D10D11B5
+        ;SDC126,  21 May 2023, EOT = $DF60, CRC = $B6357A90
+        ;STARGO,  21 May 2023, EOT = $DF46, CRC = $613E36D4
+        ;NOSP,    21 May 2023, EOT = $DEBB, CRC = $EBA7BDF2
         sixteenColourMODEMaskTable = $C407
         gcolPlotOptionsTable = $C41C
         twoColourMODEParameterTable = $C424
-        vdu25EntryPoint = $C969
-        vdu22EntryPoint = $C8D7
-        exchangeTwoVDUBytes = $CDD3
-        plotPointWithinBoundsAtY = $D111
-        checkPointXIsWithinGraphicsWindow = $D12D
-        checkPointIsWithinWindowHorizontalOrVertical = $D146
-        plotConvertExternalRelativeCoordinatesToPixels = $D169
-        moveGraphicsCursorAddressUpOneCharacterCell = $CBF4
-        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3B0
-        moveGraphicsCursorAddressTotheRight = $D3B5
-        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3C0
-        copyEightBytesWithinVDUVariables = $D43F
-        copyTwoBytesWithinVDUVariables = $D445
-        copyFourBytesWithinVDUVariables = $D44D
-        fillRow = $D653
-        setScreenAddress = $D809
+        vdu25EntryPoint = $C968
+        vdu22EntryPoint = $C8D6
+        exchangeTwoVDUBytes = $CDD2
+        plotPointWithinBoundsAtY = $D10F
+        checkPointXIsWithinGraphicsWindow = $D12B
+        checkPointIsWithinWindowHorizontalOrVertical = $D144
+        plotConvertExternalRelativeCoordinatesToPixels = $D167
+        moveGraphicsCursorAddressUpOneCharacterCell = $CBF3
+        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3AE
+        moveGraphicsCursorAddressTotheRight = $D3B3
+        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3BE
+        copyEightBytesWithinVDUVariables = $D43D
+        copyTwoBytesWithinVDUVariables = $D443
+        copyFourBytesWithinVDUVariables = $D44B
+        fillRow = $D64E
+        setScreenAddress = $D804
 elif BBC_B_PLUS
         sixteenColourMODEMaskTable = $C3FE
         gcolPlotOptionsTable = $C413
@@ -9840,7 +9840,7 @@ if ELECTRON
         ; for the Electron.
         EQUS    "Steve 2020"
 elif OS126
-        EQUS    "Greg 2022"
+        EQUS    "Greg 2023"
 endif
 
         skipto  $bfdb
