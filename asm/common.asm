@@ -42,30 +42,30 @@ if BBC_B
         fillRow = $D6A6
         setScreenAddress = $D864
 elif OS126
-        ;OS 1.25, 21 May 2023, EOT = $DF1F, CRC = $953EEC29
-        ;OS 1.26, 21 May 2023, EOT = $DF3A, CRC = $D10D11B5
-        ;SDC126,  21 May 2023, EOT = $DF60, CRC = $B6357A90
-        ;STARGO,  21 May 2023, EOT = $DF46, CRC = $613E36D4
-        ;NOSP,    21 May 2023, EOT = $DEBB, CRC = $EBA7BDF2
+        ;OS 1.25, 26 May 2023, EOT = $DF17, CRC = $A11A424C
+        ;OS 1.26, 26 May 2023, EOT = $DF32, CRC = $577161D7
+        ;SDC126,  26 May 2023, EOT = $DF58, CRC = $16C18B2A
+        ;STARGO,  26 May 2023, EOT = $DF3E, CRC = $CFF0F75D
+        ;NOSP,    26 May 2023, EOT = $DEB3, CRC = $86EB99C3
         sixteenColourMODEMaskTable = $C407
         gcolPlotOptionsTable = $C41C
         twoColourMODEParameterTable = $C424
-        vdu25EntryPoint = $C968
-        vdu22EntryPoint = $C8D6
-        exchangeTwoVDUBytes = $CDD2
-        plotPointWithinBoundsAtY = $D10F
-        checkPointXIsWithinGraphicsWindow = $D12B
-        checkPointIsWithinWindowHorizontalOrVertical = $D144
-        plotConvertExternalRelativeCoordinatesToPixels = $D167
-        moveGraphicsCursorAddressUpOneCharacterCell = $CBF3
-        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3AE
-        moveGraphicsCursorAddressTotheRight = $D3B3
-        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3BE
-        copyEightBytesWithinVDUVariables = $D43D
-        copyTwoBytesWithinVDUVariables = $D443
-        copyFourBytesWithinVDUVariables = $D44B
-        fillRow = $D64E
-        setScreenAddress = $D804
+        vdu25EntryPoint = $C963
+        vdu22EntryPoint = $C8D1
+        exchangeTwoVDUBytes = $CDCD
+        plotPointWithinBoundsAtY = $D10A
+        checkPointXIsWithinGraphicsWindow = $D126
+        checkPointIsWithinWindowHorizontalOrVertical = $D13F
+        plotConvertExternalRelativeCoordinatesToPixels = $D162
+        moveGraphicsCursorAddressUpOneCharacterCell = $CBEE
+        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3A9
+        moveGraphicsCursorAddressTotheRight = $D3AE
+        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3B9
+        copyEightBytesWithinVDUVariables = $D438
+        copyTwoBytesWithinVDUVariables = $D43E
+        copyFourBytesWithinVDUVariables = $D446
+        fillRow = $D648
+        setScreenAddress = $D7FC
 elif BBC_B_PLUS
         sixteenColourMODEMaskTable = $C3FE
         gcolPlotOptionsTable = $C413
