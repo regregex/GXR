@@ -42,11 +42,11 @@ if BBC_B
         fillRow = $D6A6
         setScreenAddress = $D864
 elif OS126
-        ;OS 1.25, 20 Oct 2023, NUL = $DF11, CRC = $6117032F
-        ;OS 1.26, 20 Oct 2023, NUL = $DF2C, CRC = $77914EA0
-        ;SDC12S,  20 Oct 2023, NUL = $DF43, CRC = $4B1DDCEF
-        ;STARGO,  20 Oct 2023, NUL = $DF38, CRC = $CADE0503
-        ;NOSP,    20 Oct 2023, NUL = $DEAD, CRC = $B6971289
+        ;OS 1.25, 01 Dec 2023, NUL = $DF11, CRC = $4B6D1FC3
+        ;OS 1.26, 01 Dec 2023, NUL = $DF2C, CRC = $7606531B
+        ;SDC12S,  01 Dec 2023, NUL = $DF43, CRC = $7EAEB407
+        ;STARGO,  01 Dec 2023, NUL = $DF38, CRC = $879BBCED
+        ;NOSP,    01 Dec 2023, NUL = $DEAD, CRC = $385C1511
         sixteenColourMODEMaskTable = $C407
         gcolPlotOptionsTable = $C41C
         twoColourMODEParameterTable = $C424
