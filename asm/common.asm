@@ -42,11 +42,11 @@ if BBC_B
         fillRow = $D6A6
         setScreenAddress = $D864
 elif OS126
-        ;OS 1.25, 01 Dec 2023, NUL = $DF11, CRC = $4B6D1FC3
-        ;OS 1.26, 01 Dec 2023, NUL = $DF2C, CRC = $7606531B
-        ;SDC12S,  01 Dec 2023, NUL = $DF43, CRC = $7EAEB407
-        ;STARGO,  01 Dec 2023, NUL = $DF38, CRC = $879BBCED
-        ;NOSP,    01 Dec 2023, NUL = $DEAD, CRC = $385C1511
+        ;OS 1.25, 06 Jun 2024, EOT = $DF0F, CRC = $8F7FE879
+        ;OS 1.26, 06 Jun 2024, EOT = $DF2A, CRC = $C0C8E1E9
+        ;SDC12S,  06 Jun 2024, EOT = $DF41, CRC = $8CF2F92D
+        ;STARGO,  06 Jun 2024, EOT = $DF36, CRC = $7CE936AB
+        ;NOSP,    06 Jun 2024, EOT = $DEAB, CRC = $A5811E55
         sixteenColourMODEMaskTable = $C407
         gcolPlotOptionsTable = $C41C
         twoColourMODEParameterTable = $C424
@@ -58,14 +58,14 @@ elif OS126
         checkPointIsWithinWindowHorizontalOrVertical = $D13A
         plotConvertExternalRelativeCoordinatesToPixels = $D15D
         moveGraphicsCursorAddressUpOneCharacterCell = $CBED
-        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3A4
-        moveGraphicsCursorAddressTotheRight = $D3A9
-        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3B4
-        copyEightBytesWithinVDUVariables = $D433
-        copyTwoBytesWithinVDUVariables = $D439
-        copyFourBytesWithinVDUVariables = $D441
-        fillRow = $D643
-        setScreenAddress = $D7F6
+        moveGraphicsCursorAddressTotheRightAndUpdateMask = $D3A3
+        moveGraphicsCursorAddressTotheRight = $D3A8
+        moveGraphicsCursorAddressTotheLeftAndUpdateMask = $D3B3
+        copyEightBytesWithinVDUVariables = $D432
+        copyTwoBytesWithinVDUVariables = $D438
+        copyFourBytesWithinVDUVariables = $D440
+        fillRow = $D642
+        setScreenAddress = $D7F4
 elif BBC_B_PLUS
         sixteenColourMODEMaskTable = $C3FE
         gcolPlotOptionsTable = $C413
@@ -9840,7 +9840,7 @@ if ELECTRON
         ; for the Electron.
         EQUS    "Steve 2020"
 elif OS126
-        EQUS    "Greg 2023"
+        EQUS    "Greg 2024"
 endif
 
         skipto  $bfdb
